@@ -1,0 +1,137 @@
+import numpy as np
+from scipy.optimize import linprog
+from scipy.optimize import minimize
+import scipy
+
+print(scipy.__version__)
+print(np.__version__)
+
+
+
+
+# # import numpy
+
+# # from scipy.optimize import linprog
+# import scipy
+
+# print(scipy.__version__)
+
+
+# # Coeficientes da função objetivo
+# c = [-1, -2]
+
+# # Coeficientes das restrições de desigualdade
+# A = [[-1, 1],
+#      [1, 1]]
+
+# # Termos independentes das restrições de desigualdade
+# b = [1, 2]
+
+# # Chamando a função linprog
+# res = linprog(c, A_ub=A, b_ub=b, method='simplex')
+
+# # Exibindo os resultados
+# print('Status:', res.message)
+# print('Valor da função objetivo:', res.fun)
+# print('Variáveis de decisão:', res.x)
+
+
+
+# # =====felipe=====
+# import numpy as np
+
+# # Problema 1:
+# c = [5,1]
+
+# A = [[-2,-1],[-1,-1],[-1,-5]]
+# b = [-6,-4,-10]  #Deve se multiplicar tudo por - 1 para que a inequeação "seja oposta"
+
+# bnds = [(0,None),(0,None)]
+
+# res1 = linprog(c,A_ub=A, b_ub=b, bounds = bnds)
+
+
+# print('Problema 1')
+# print('Status:', res1.message)
+# print('Valor da função:', res1.fun)
+# print('Variaveis de X:', res1.x)
+
+
+# # Problema 2
+
+# c = [-2,3]
+
+# A = [[1,2],[2,-1],[-1,0],[0,-1]]
+
+# b = [6,8,0,0]
+
+# bnds = [(0,None),(0,None)]
+
+# res2 = linprog(c,A_ub=A,b_ub=b,bounds=bnds)
+
+# print('================================')
+# print('Problema 2')
+# print('Status:', res2.message)
+# print('Valor da função:', -res2.fun) #Por conta do linprog usar a minização e a maximização pode ser dada pelo oposto da minização
+# print('Variaveis de X:', res2.x)
+
+# #Problema 3
+
+# c = [-15,-41,11]
+
+# A = [[-3,0,0]]
+
+# b = [-1]
+
+# print('================================')
+# print('Problema 3')
+# print('Status:', res3.message)
+# print('Valor da função:', -res3.fun)
+# print('Variaveis de X:', res3.x)
+
+# #Problema 4
+
+# c = [0,0,10,10]
+
+# A = [[-1,2,0,0],
+#      [0,-1,2,0],
+#      [0,0,-1,2]]
+
+# b = [0,0,0]
+
+# Aeq = [[1,1,1,1]]
+
+# beq = [400]
+
+# bnds = [(0,None),(0,None),(0,None),(0,0)]
+
+# res4 = linprog(c,A_ub=A,b_ub=b,A_eq=Aeq,b_eq=beq,bounds=bnds)
+
+# print('================================')
+# print('Problema 4')
+# print('Status:', res4.message)
+# print('Valor da função:', res4.fun)
+# print('Variaveis de X:', res4.x)
+
+# #Problema 5
+
+# c = [2,0,-3,0]
+
+# A = [[-1,0,0,0],
+#      [0,-1,0,0]]
+
+# b = [(0,1,0,0),(0,0,1,0)]
+
+# Aeq = [[1,1,1,0]]
+
+# beq = [12]
+
+# bnds = [(0,None),(0,None),(0,None),(0,0)]
+
+# res5 = linprog(c,A_ub=A,b_ub=b,A_eq=Aeq,b_eq=beq,bounds=bnds)
+
+# print('================================')
+# print('Problema 5')
+# print('Status:', res5.message)
+# print('Valor da função:', -res5.fun)
+# print('Variaveis de X:', res5.x)

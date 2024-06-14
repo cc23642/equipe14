@@ -78,12 +78,13 @@ print('Valor da função:', res4.fun)
 print('Variaveis de X:', res4.x)
 
 
-#Problema 5
+# Maximizar Problema 5
 
-c = [-2,0,-3]
+
+c = np.array([-2,3,3])
 
 A = [[1,-1,0],
-     [0,1,-1,]]
+     [0,1,-1]]
 
 b = [-1,-1]
 
@@ -91,9 +92,7 @@ Aeq = [[1,1,1]]
 
 beq = [12]
 
-bnds = [(0,None),(0,None),(0,None),(0,0)]
-
-res5 = linprog(c,A_ub=A,b_ub=b,A_eq=Aeq,b_eq=beq,bounds=(0,None))
+res5 = linprog(-c,A_ub=A,b_ub=b,A_eq=Aeq,b_eq=beq,bounds=(0,None))
 
 print('================================')
 print('Problema 5')
@@ -115,14 +114,11 @@ b = [7]*13
 
 res7 = linprog(-c, A_ub=A, b_ub=b, bounds=(0, None), method='highs')
 
-x_opt = res7.x #Valor ótimo da variavel de decisão
-f_opt = -res7.fun #Valor ótimo da função objetivo
-
-print("Valor ótimo da função objetivo:", f_opt)
-print("Solução ótima para x:", x_opt)
 print('================================')
 print('Problema 7')
 print('Status:', res7.message)
-print('Valor da função objetivo:', -res7.fun)
-print('Variáveis de decisão:', res7.x)
+print(f'Valor da função objetivo: {-res7.fun:.2f}')
+print(f'Variáveis de decisão: [ {res7.x[0]:.2f}. {res7.x[1]:.2f}.]')
+print(f'Valor da função objetivo [não formatado]: {-res7.fun}')
+print(f'Variáveis de decisão [não formatado]: {res7.x}')
 

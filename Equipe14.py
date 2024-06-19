@@ -1,8 +1,9 @@
 import numpy as np
 import scipy
 from scipy.optimize import linprog
+import matplotlib.pyplot as plt
 
-#O código foi feito utilizando o python e a bibloteca Scipy que inclui o método optimize.linprog que tem por objetivo fazer a minização ,
+#O código foi feito utilizando o python e a bibloteca Scipy que inclui o método optimize.linprog que tem por objetivo fazer a minização,
 #ou maximização dependendo de como será escrito, de uma função linear que tenha conjunto de restrições lineares.
 #Em outras palavras podemos dizer que essa função tem como objetivo usar o método Simplex
 #Porém o linprog necessita que os valores sejam passados em matrizes para que seja possível realizar o cálculo.
@@ -50,6 +51,8 @@ res1 = linprog(c,A_ub=A, b_ub=b, bounds = (0,None))
 print('Problema 1')
 print('Valor da função:', res1.fun)
 print('Variaveis de X:', res1.x)
+
+
 
 
 # Problema 2
@@ -161,3 +164,35 @@ print('Variáveis de X arrendondado:', variaveisx)
 
 #Para testar o código é necessário colocar o seguinte comando no terminal:
 #python Equipe14.py ou python3 Equipe14.py
+
+#Fazendo o gráfico das respostas do Problema 1
+
+#Definindo as restrições
+x = np.linspace(0, 10, 400)
+y1 = (6 - 2 * x)
+y2 = (4 - x)
+y3 = (10 - x) / 5
+
+#Colocando no gráfico as inequações
+plt.plot(x, y1, label=r'$2x_1 + x_2 \geq 6$')
+plt.plot(x, y2, label=r'$x_1 + x_2 \geq 4$')
+plt.plot(x, y3, label=r'$x_1 + 5x_2 \geq 10$')
+
+#Área da região factivél
+y4 = np.maximum(y1, y2)
+y5 = np.maximum(y4, y3)
+plt.fill_between(x, 0, y5, where=(y5 >= 0), color='green', alpha=0.5)
+
+#Coordenada da solução ótima
+plt.plot(res1.x[0], res1.x[1], 'ro', label='Solução Ótima')
+
+
+plt.xlim(0, 10)
+plt.ylim(0, 10)
+plt.xlabel(r'$x_1$')
+plt.ylabel(r'$x_2$')
+plt.legend()
+plt.title('Problema 1')
+
+#Mostrar o gráfico
+plt.show()

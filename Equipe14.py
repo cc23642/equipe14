@@ -3,6 +3,16 @@ import scipy
 from scipy.optimize import linprog
 import matplotlib.pyplot as plt
 
+# Felipe Batista 23314
+# Murilo Cela 23642
+
+
+#======================================
+#Para testar o código é necessário colocar o seguinte comando no terminal:
+#python Equipe14.py ou python3 Equipe14.py
+#======================================
+
+
 #O código foi feito utilizando o python e a bibloteca Scipy que inclui o método optimize.linprog que tem por objetivo fazer a minização,
 #ou maximização dependendo de como será escrito, de uma função linear que tenha conjunto de restrições lineares.
 #Em outras palavras podemos dizer que essa função tem como objetivo usar o método Simplex
@@ -161,9 +171,11 @@ print('Variáveis de X inteiro:', res7.x)
 print('Valor da função arrendondado:', round(-res7.fun,2))
 print('Variáveis de X arrendondado:', variaveisx)
 
-
+#======================================
 #Para testar o código é necessário colocar o seguinte comando no terminal:
 #python Equipe14.py ou python3 Equipe14.py
+#======================================
+
 
 #Fazendo o gráfico das respostas do Problema 1
 
